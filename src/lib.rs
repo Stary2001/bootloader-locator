@@ -86,6 +86,7 @@ fn metadata(path: Option<&PathBuf>) -> Result<json::JsonValue, CargoMetadataErro
     cmd.arg("metadata");
     cmd.arg("--manifest-path").arg(path.unwrap_or(&PathBuf::from("./Cargo.toml")));
     cmd.arg("--format-version").arg("1");
+    cmd.arg("--features").arg("platform_pc");
     let output = cmd.output()?;
 
     if !output.status.success() {
